@@ -3,13 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
+
         <title>Liberty & Lemonade</title>
-      
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-      
+
         <style>
           :root {
             --navy: #0B2D5B;
@@ -18,11 +18,11 @@
             --cream: #FFF8E1;
             --white: #FFFFFF;
           }
-      
+
           * {
             box-sizing: border-box;
           }
-      
+
           body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
@@ -30,33 +30,41 @@
             color: var(--white);
             line-height: 1.6;
           }
-      
+
           header {
             background: var(--navy);
             text-align: center;
             padding: 3rem 1rem 2rem;
           }
-      
+
           header img {
             max-width: 320px;
             width: 90%;
             margin-bottom: 1rem;
           }
-      
+
           header h1 {
             font-family: 'Pacifico', cursive;
             font-size: 2.8rem;
             color: var(--yellow);
             margin: 0;
           }
-      
+
           header p {
             max-width: 700px;
             margin: 1rem auto 2rem;
             font-size: 1.1rem;
             color: var(--cream);
           }
-      
+
+          .header-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+          }
+
           .btn {
             display: inline-block;
             background: var(--yellow);
@@ -65,16 +73,38 @@
             font-weight: 800;
             border-radius: 999px;
             text-decoration: none;
-            margin: 0.5rem;
             box-shadow: 0 6px 0 #c9a400;
             transition: transform 0.1s ease, box-shadow 0.1s ease;
+            font-size: 1rem;
           }
-      
+
           .btn:hover {
             transform: translateY(2px);
             box-shadow: 0 4px 0 #c9a400;
           }
-      
+
+          .btn-red {
+            background: var(--red);
+            color: var(--white);
+            box-shadow: 0 6px 0 #8b1519;
+          }
+
+          .btn-red:hover {
+            box-shadow: 0 4px 0 #8b1519;
+          }
+
+          .btn-outline {
+            background: transparent;
+            color: var(--white);
+            box-shadow: none;
+            border: 3px solid var(--white);
+          }
+
+          .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            box-shadow: none;
+          }
+
           section {
             background: var(--cream);
             color: #222;
@@ -85,41 +115,154 @@
             border: 6px solid var(--red);
             box-shadow: 0 12px 30px rgba(0,0,0,0.25);
           }
-      
+
           section h2 {
             text-align: center;
             font-size: 2rem;
             margin-top: 0;
             color: var(--navy);
           }
-      
+
+          section > p {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 1.5rem;
+          }
+
           .details {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
             text-align: center;
+            margin-top: 1.5rem;
           }
-      
+
           .detail-box {
             background: var(--white);
-            padding: 1.5rem;
+            padding: 1.5rem 1rem;
             border-radius: 14px;
             border: 3px solid var(--navy);
           }
-      
+
+          .detail-box .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.4rem;
+          }
+
           .detail-box strong {
             display: block;
             color: var(--red);
-            margin-bottom: 0.3rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
           }
-      
+
+          /* ── Get Involved ── */
+          .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+          }
+
+          @media (max-width: 580px) {
+            .cta-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
+          }
+
+          .cta-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 3px solid var(--navy);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .cta-card .icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 0.75rem;
+          }
+
+          .cta-card h3 {
+            font-size: 1.4rem;
+            color: var(--navy);
+            margin: 0 0 0.6rem;
+          }
+
+          .cta-card p {
+            font-size: 0.92rem;
+            color: #555;
+            margin-bottom: 1.25rem;
+            flex: 1;
+          }
+
+          /* ── Donate funds section ── */
+          .donate-box {
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 1.5rem;
+            border: 3px solid var(--yellow);
+          }
+
+          .donate-box h3 {
+            color: var(--yellow);
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem;
+          }
+
+          .donate-box p {
+            margin: 0 0 1.25rem;
+            font-size: 0.95rem;
+            color: var(--cream);
+          }
+
+          .donate-disclaimer {
+            font-size: 0.78rem;
+            color: #888;
+            text-align: center;
+            margin-top: 1rem;
+          }
+
+          /* ── Gallery ── */
+          .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+          }
+
+          .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid var(--navy);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: block;
+          }
+
+          .gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+          }
+
           iframe {
             width: 100%;
             height: 315px;
             border-radius: 16px;
             border: 4px solid var(--navy);
+            display: block;
           }
-      
+
           footer {
             text-align: center;
             font-size: 0.85rem;
@@ -128,73 +271,109 @@
           }
         </style>
       </head>
-      
+
 <body>
 
 <header>
-    <img src="images/logo.png" alt="Liberty and Lemonade Logo" />
+  <img src="images/logo.png" alt="Liberty and Lemonade Logo" />
   <h1>A Summer Tradition</h1>
   <p>
-    A family-friendly summer carnival celebrating community, civics, and local leadership.
+    A family-friendly summer carnival celebrating community, civics, and local leadership — hosted by the 23rd Legislative District Republicans.
   </p>
-  <a class="btn" href="#donate">Support the Event</a>
-  <a class="btn" href="#details">Event Details</a>
-  <a class="btn" href="#">Volunteer!</a>
+  <div class="header-ctas">
+    <a class="btn" href="#details">Event Details</a>
+    <a class="btn btn-red" href="#get-involved">Volunteer!</a>
+    <a class="btn btn-outline" href="#donate">Donate</a>
+  </div>
 </header>
 
-<section id="details" class="event-details">
+<!-- ── Event Details ── -->
+<section id="details">
   <h2>Event Details</h2>
-  <ul>
-    <li><strong>Date:</strong> June 20th 2026</li>
-    <li><strong>Time:</strong> 1 - 4pm</li>
-    <li><strong>Location:</strong> 18120 Viking Way NW, Poulsbo</li>
-    <li><strong>What to Expect:</strong> Lemonade, games, family fun, and community</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Highlights From Last Year</h2>
-  <div class="video-wrapper">
-    <!-- Replace the YouTube link below -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/01ZZa_9Y8v8?si=cH9jKxvSp2Lzy4-z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  </div>
-</section>
-
-<section>
-  <h2>Photo Gallery</h2>
-  <div class="gallery">
-    <!-- Replace with your own images -->
-    <img src="images/temp.png" alt="Liberty and Lemonade event">
-    <img src="images/temp.png" alt="Family fun">
-    <img src="images/temp.png" alt="Lemonade stand">
-    <img src="images/temp.png" alt="Community gathering">
+  <div class="details">
+    <div class="detail-box">
+      <span class="icon">📅</span>
+      <strong>Date</strong>
+      June 20th, 2026
+    </div>
+    <div class="detail-box">
+      <span class="icon">🕐</span>
+      <strong>Time</strong>
+      1:00 PM – 4:00 PM
+    </div>
+    <div class="detail-box">
+      <span class="icon">📍</span>
+      <strong>Location</strong>
+      18120 Viking Way NW<br>Poulsbo, WA
+    </div>
+    <div class="detail-box">
+      <span class="icon">🍋</span>
+      <strong>Activities</strong>
+      Lemonade, games, family fun &amp; community
+    </div>
   </div>
 </section>
 
-<section id="donate">
-  <h2>Support Liberty and Lemonade</h2>
-  <p style="text-align:center; max-width:700px; margin:auto;">
-    Your support helps fund grassroots organizing and community outreach
-    in Washington’s 23rd Legislative District.
+<!-- ── Get Involved ── -->
+<section id="get-involved">
+  <h2>Get Involved!</h2>
+  <p>
+    Liberty &amp; Lemonade runs on community spirit. Whether you give your time or donate supplies, every contribution helps us celebrate freedom together.
   </p>
-  <p style="text-align:center;">
-    <!-- Replace with WinRed or Stripe link -->
-    <a
-        class="btn"
-        href="https://www.amazon.com/hz/wishlist/ls/3MN9KZEN9686?ref_=wl_share"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-        Donate to the Event
-    </a>
+  <div class="cta-grid">
+    <div class="cta-card">
+      <span class="icon">🙋</span>
+      <h3>Volunteer</h3>
+      <p>Help us set up, run games, serve lemonade, and make this a day to remember. All ages welcome!</p>
+      <a class="btn" href="#VOLUNTEER_LINK_HERE" target="_blank" rel="noopener noreferrer">Sign Up to Volunteer</a>
+    </div>
+    <div class="cta-card">
+      <span class="icon">🎁</span>
+      <h3>Donate Supplies</h3>
+      <p>Shop our Amazon wish list and contribute items we need — from games to decorations to lemonade supplies.</p>
+      <a class="btn" href="https://www.amazon.com/hz/wishlist/ls/3MN9KZEN9686?ref_=wl_share" target="_blank" rel="noopener noreferrer">View Wish List</a>
+    </div>
+  </div>
+</section>
 
+<!-- ── Donate Funds ── -->
+<section id="donate">
+  <h2>Support Liberty &amp; Lemonade</h2>
+  <p>
+    Your financial contribution supports grassroots organizing and community outreach across Washington's 23rd Legislative District. Every dollar makes a real difference.
+  </p>
+  <div class="donate-box">
+    <h3>Make a Financial Donation</h3>
+    <p>Help fund this event and our continued work building a stronger community in Kitsap County.</p>
+    <a class="btn btn-red" href="#DONATE_FUNDS_LINK_HERE" target="_blank" rel="noopener noreferrer">Donate Now</a>
+  </div>
+  <p class="donate-disclaimer">
+    Contributions are not tax deductible as charitable donations.<br>
+    Paid for by the 23rd Legislative District Republicans. Not authorized by any candidate or candidate's committee.
   </p>
 </section>
 
+<!-- ── Highlights ── -->
+<section>
+  <h2>Highlights From Last Year</h2>
+  <iframe src="https://www.youtube.com/embed/01ZZa_9Y8v8?si=cH9jKxvSp2Lzy4-z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section>
+
+<!-- ── Gallery ── -->
+<section>
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="images/Liberty.jpeg" alt="Liberty and Lemonade event">
+    <img src="images/Community.jpeg" alt="Community gathering">
+    <img src="images/FamilyFun.jpeg" alt="Family fun at the event">
+    <img src="images/Lemonadestand.jpeg" alt="Lemonade stand">
+  </div>
+</section>
 
 <footer>
   <p>
     Paid for by the 23rd Legislative District Republicans.<br />
-    Not authorized by any candidate or candidate’s committee.
+    Not authorized by any candidate or candidate's committee.
   </p>
 </footer>
 
